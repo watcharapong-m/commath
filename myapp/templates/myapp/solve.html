@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="section_container second_section_container flex_container flex_center">
+    <div class="text header_text text_grad_purple_yellow">
+       <center> <h3>แก้ระบบสมการเชิงเส้น $Ax = b$<i class="fa fa-angle-double-right "></i></h3> </center>
+    </div>
+       
+        
+
+<section>
+<div class="container">
+    <div class="row">
+             <div class="col-md-6" >
+                    <div class="container">
+                        <div class="form-group">
+                                <h3><strong>กรุณากรอกค่าต่อไปนี้</strong></h3>
+                                    <form action='' method="post">
+                                        {% csrf_token %}
+                                        <textarea name = "data" rows="7" cols="100"></textarea>
+                                        <br>
+                                        <br>
+                                        <button type="submit" class="btn btn-secondary">คำนวณ</button>
+                                    </form>  
+                                    <br>
+                              <h2><strong> ผลลัพธ์ </strong></h2>
+                    {% for r in results %}
+                        {{r}},
+                    {% endfor %}
+                    <hr>
+                    {% for i, j in mylist %}
+                        {{ i }} = {{ j }} <br>
+                    {% endfor %}
+                </div>
+            </div>
+     </div>
+</div>
+</div>
+  
+</section>
+{% endblock %}

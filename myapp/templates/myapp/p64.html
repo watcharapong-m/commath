@@ -1,0 +1,33 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <section class="headline-sec">
+        <div class="overlay ">
+            <h3>แปลงเลขทศนิยมเป็น IEEE floating point single precision (64-bit)</h3>
+
+        </div>
+    </section>
+    <!--HOME SECTION END-->
+    <br>
+    <br>
+    <section>
+            <h4> กรอกตัวเลขที่ต้องการแปลง</h4>
+            <form action='' method="post">
+                {% csrf_token %}
+                <input name="x" type="number" step=any class="form-control"/ value="{{d}}">
+                <br>
+                <button type="submit" class="btn btn-secondary">คำนวณ</button>
+            </form>
+            <br>
+        <h2> ผลลัพธ์ </h2>
+        <h4>s = {{s}}</h4>
+        <h4>e = {{e}}</h4>
+        <h4>f = {{f}}</h4>
+        <br>
+    </section>
+</div>
+{% endblock %}

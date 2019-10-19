@@ -1,0 +1,45 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+        <section class="headline-sec">
+            <div class="overlay ">
+                <h3> Differentiation หาค่าประมาณของฟังก์ชั่น </h3>
+    
+            </div>
+        </section>
+<!--HOME SECTION END-->
+<section>
+    <br>
+    <div class="container marketing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <h3>
+                            <B>กรอกข้อมูลต่อไปนี้</B> <br>
+                        </h3>
+                        <form action='' method="post">
+                            {% csrf_token %}
+                            เลือกฟังก์ชั่น
+                            <select class="form-control" name=function>
+                                <option value="trapezoidal">Trapezoidal Rule</option>
+                                <option value="simson">Simpson's Rule</option>
+                            </select>
+                            ฟังก์ชั่น
+                            <input name="fx" type="text" step=any class="form-control" placeholder="เช่น e**x">
+                            <br>
+                            <button type="submit" class="btn btn-secondary">คำนวณ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2><strong> ผลลัพธ์ </strong></h2>
+                <h4>{{x}}</h4>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel='icon' href='static\myapp\img\favicon.ico'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Commath</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.min.css' %}" />
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: rgb(231, 226, 226);
+    }
+  </style>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand">Commath</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/ ">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">About</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav ml-auto">
+          <a><img src="{% static 'myapp/img/facebook.png' %}" style="width: 28px; height: 28px;">
+            </li>
+            &ensp;
+        </ul>
+        <a><img src="{% static 'myapp/img/twitter.png' %}" style="width: 28px; height: 28px;">
+      </div>
+    </div>
+  </div>
+  {% block content %}
+
+  {% endblock %}
+</body>
+
+</html>

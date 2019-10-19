@@ -1,0 +1,86 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+    <section class="headline-sec">
+        <div class="overlay ">
+            <h3>Root-finding หาจุดสูงสุดหรือต่ำสุดของฟังก์ชั่น</h3>
+
+        </div>
+    </section>
+    <!--HOME SECTION END-->
+    <section>
+        <br>
+        <div class="container marketing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h3>
+                                <B>กรอกข้อมูลต่อไปนี้</B> <br>
+                            </h3>
+                            <form action='' method="post">
+                                {% csrf_token %}
+                                เลือกฟังก์ชั่น
+                                <select class="form-control" id="select" name=function onchange="myFunctiongetselect()">
+                                    <option value="incremental">Incremental Search Method</option>
+                                    <option value="bisection">Bisection Method</option>
+                                    <option value="newton">Newton-Raphson Method</option>
+                                    <option value="secant">Secant Method</option>
+                                </select>
+                                ฟังก์ชั่น
+                                <input name="fx" type="text" step=any class="form-control"
+                                    placeholder="เช่น 3*x**3 - 10*x**2 + 5" >
+                                <div id="df"></div>
+                                <br>
+                                <button type="submit" class="btn btn-secondary">คำนวณ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h2><strong>ผลลัพธ์</strong></h2>
+                    <h4>x = {{x}}</h4>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function myFunctiongetselect() {
+            var x = document.getElementById("select").value;
+            if (x == "newton") {
+                var paragraph = document.getElementById("df");
+                var text = document.createTextNode("ฟังก์ชั้นDif1ครั้ง");
+                paragraph.appendChild(text);
+                var x = document.createElement("INPUT");
+                x.setAttribute("id", "dx");
+                x.setAttribute("name", "dx");
+                x.setAttribute("class", "form-control");
+                x.setAttribute("type", "text");
+                x.setAttribute("placeholder", "9*x**2-20*x");
+                x.setAttribute("value", "9*x**2-20*x");
+                document.getElementById("df").appendChild(x);
+            } else {
+                var div = document.getElementById("dx");
+                div.parentNode.removeChild(div);
+            }
+        }
+    </script>
+
+    </section>
+    <!--FOOTER SECTION END-->
+    <div class="copy-txt">
+        <div class="container">
+            <div class="row">
+                {% comment %} <div class="col-md-12 set-foot">
+                    &copy 2014 your domain | All rights reserved | Design by : <a href="http://www.binarytheme.com"
+                        target="_blank" style="color:#7C7C7C;">binarytheme.com</a>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
